@@ -1,0 +1,32 @@
+body{
+    width:100vw;
+    height:100vh;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url('images/background.jpg');
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: 'Coming Soon', cursive;
+}
+.guess_div, .response_outer_div, .response_div, .gameplay_div, .header{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.response_img{
+    height:100px;
+    width:100px;
+    display: none;
+}
+.guess_div{
+    padding-top:50px;
+    display:none;
+}
+#reset{
+    display:none;
+
+}
