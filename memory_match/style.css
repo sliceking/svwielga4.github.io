@@ -1,0 +1,70 @@
+body{
+    width:100vw;
+    height:100vh;
+}
+.header{
+    width:95vw;
+    height:10vh;
+    border:5px solid black;
+    margin:5px;
+    position:relative;
+}
+.header ul{
+    list-style: none;
+    display:flex;
+    justify-content: space-around;
+}
+li{
+    font-size:30px;
+}
+.scoreboard{
+    width:10vw;
+    height:70vh;
+    border:5px solid black;
+    margin:5px;
+}
+.scoreboard ul{
+    list-style: none;
+    padding:0;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.scoreboard li{
+    margin:15px 0;
+}
+.game_area{
+    margin:5px;
+    border:5px solid black;
+    width:80vw;
+    height:70vh;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.main{
+    display:flex;
+    flex-direction: row;
+}
+.card{
+    width:10vw;
+    height:17vh;
+    margin:1%;
+    position:relative;
+}
+.card img{
+    max-width:100%;
+    max-height:100%;
+    position:absolute;
+    width:100px;
+    height:140px;
+}
+.display_message{
+    background-color: red;
+    display:inline-block;
+    position:absolute;
+    left:50%;
+    bottom:5%;
+    z-index: 10;
+}

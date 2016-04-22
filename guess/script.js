@@ -69,7 +69,6 @@ function guessResponse(text){
 }
 function reset(){ //resets variables and returns to the gameplay selection screen
     answer=null;
-    gameplay=10;
     $('.gameplay_div').show();
     $('.guess_div').hide();
     $('#response_div').empty();
