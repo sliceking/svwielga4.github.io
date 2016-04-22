@@ -1,0 +1,26 @@
+button{
+    border:1px solid red;
+    margin: 5px;
+    width:35px;
+    height:35px;
+}
+h1{
+    border:1px solid red;
+    height:45px;
+}
+#calc_body{
+    position:relative;
+    border:1px solid red;
+    width:300px;
+    height:400px;
+}
+#operator{
+    position:absolute;
+    width:35px;
+    right:0;
+}
+.clear{
+    position:absolute;
+    right:50px;
+    top:100px;
+}
