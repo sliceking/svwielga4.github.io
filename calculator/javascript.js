@@ -21,8 +21,8 @@ $(document).ready(function(){
     })
 });
 
-function append_calculator(){ //function creates jquery objects for each button and appends them to the calc body
-    console.log('calc');
+function append_calculator(){ //function creates jquery objects for each button and appends them to the calculator body
+    console.log('calculator');
     var calc_body = $('#calc_body');
     var text_area = $('<h1>',{
         id:'text_area'

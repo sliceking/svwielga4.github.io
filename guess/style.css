@@ -4,7 +4,7 @@ body{
     display:flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    #justify-content: center;
     background-image: url('images/background.jpg');
     background-size:cover;
     background-repeat: no-repeat;
@@ -28,5 +28,10 @@ body{
 }
 #reset{
     display:none;
-
+}
+.spacer{
+    height:200px;
+}
+.gameplay_div input{
+    margin:10px;
 }
