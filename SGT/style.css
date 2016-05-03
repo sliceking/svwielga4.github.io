@@ -1,0 +1,18 @@
+.input-group{
+    position: relative;
+}
+.autoComplete{
+    background-color: white;
+    list-style-type: none;
+    position: absolute;
+    top: 37px;
+    display: none;
+    padding-left: 0px;
+    border: 1px solid lightgray;
+    width: 321px;
+    z-index: 100;
+}
+.dropDownShow:hover{
+    background-color: orange;
+}
+/*.dropDownShow:*/
