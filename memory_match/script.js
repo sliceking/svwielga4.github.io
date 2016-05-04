@@ -25,7 +25,7 @@ function MEMORY_MATCH(){
     this.score = 0;
     this.attempts = 0;
     this.append_cards_to_gameboard =  function(){
-        var card_fronts=['images/bill.png','images/bill.png','images/dipper.png','images/dipper.png','images/ford.png','images/ford.png','images/gideon.png','images/gideon.png','images/gnome.png','images/gnome.png','images/mabel.jpg','images/mabel.jpg','images/soos.png','images/soos.png','images/unclestan.png','images/unclestan.png','images/wendy.png','images/wendy.png'];
+        var card_fronts=['images/bill.jpg','images/bill.jpg','images/dipper.jpg','images/dipper.jpg','images/ford.jpg','images/ford.jpg','images/gideon.jpg','images/gideon.jpg','images/gnome.jpg','images/gnome.jpg','images/mabel.jpg','images/mabel.jpg','images/soos.jpg','images/soos.jpg','images/unclestan.jpg','images/unclestan.jpg','images/wendy.jpg','images/wendy.jpg'];
         var card_fronts = self.randomize_cards(card_fronts); //randomizes the card front array
         for (var i=0;i<18;i++){
             var game_area = $('.game_area'); //game area target
