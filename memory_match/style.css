@@ -12,23 +12,33 @@ body{
     justify-content: center;
     align-items: center;
 }
-
+.game_item{
+    border:5px solid black;
+    background-color: #3f6060;
+    opacity: 0.7;
+}
 .header{
     width:95%;
     height:10%;
-    border:5px solid red;
     position:relative;
     border-radius: 50px;
-
+}
+.logo{
+    height:100%;
+    width:15%;
+    display: inline-block;
 }
 .header ul{
+    display:inline-block;
     list-style: none;
-    display:flex;
-    justify-content: space-around;
+    position: relative;
+    transform: translateY(50%);
+    top:-60%;
+    font-size:35px;
+    left:20vw;
+    color: #fff9f8;
 }
-li{
-    font-size:2vw;
-}
+
 .main{
     display:flex;
     flex-direction: row;
@@ -38,9 +48,9 @@ li{
 .scoreboard{
     width:10%;
     height:70%;
-    border:5px solid red;
     border-radius: 50px;
     margin:5px;
+    font-size:18px;
 }
 .scoreboard ul{
     list-style: none;
@@ -54,7 +64,6 @@ li{
 }
 .game_area{
     margin:1%;
-    border:5px solid red;
     width:100%;
     height:100%;
     display:flex;
@@ -84,9 +93,11 @@ li{
 }
 .display_message{
     background-color: red;
+    border:5px solid black;
     display:inline-block;
     position:absolute;
-    left:50%;
-    bottom:5%;
+    left:43%;
+    height:90px;
+    bottom:1%;
     z-index: 10;
 }

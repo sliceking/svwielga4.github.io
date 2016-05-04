@@ -6,7 +6,7 @@ function CARD(front,back){
     this.back=back;
     $(this.back).click(function(){
         if(clickable){
-            self.show_card();
+           self.show_card();
         }
     });
     this.show_card = function(){
@@ -22,6 +22,8 @@ function MEMORY_MATCH(){
     this.first_card=null;
     this.second_card=null;
     this.total_matches=0;
+    this.score = 0;
+    this.attempts = 0;
     this.append_cards_to_gameboard =  function(){
         var card_fronts=['images/bill.png','images/bill.png','images/dipper.png','images/dipper.png','images/ford.png','images/ford.png','images/gideon.png','images/gideon.png','images/gnome.png','images/gnome.png','images/mabel.jpg','images/mabel.jpg','images/soos.png','images/soos.png','images/unclestan.png','images/unclestan.png','images/wendy.png','images/wendy.png'];
         var card_fronts = self.randomize_cards(card_fronts); //randomizes the card front array
@@ -75,9 +77,13 @@ function MEMORY_MATCH(){
         self.second_card = null;
         $('.game_area').empty(); //empties the game area
         $('#score').text('0'); // sets the score back to 0
+        self.score = 0;
         self.total_matches = 0;
         $('.display_message').empty();
         self.append_cards_to_gameboard(); //creates a new game area
+        self.attempts= 0;
+        $('#attempts').text(0);
+        $('#accuracy').text('0.0 %')
     };
     this.compare_cards = function(card){
         if (self.first_card == null){
@@ -86,9 +92,13 @@ function MEMORY_MATCH(){
         }else if(self.second_card == null) {
             self.second_card = card; // if the second_card variable is null, it sets second_card to the card clicked
             if (self.first_card.attr('src') == self.second_card.attr('src')) {
+                self.update_attempts();
                 self.cards_match(); // if the src attribute on both cards match, the cards match function is fired
+                self.accuracy_update();
             } else {
+                self.update_attempts();
                 self.cards_dont_match(); // if the src attribute on both cards dont match, the cards_dont_match function is fired
+                self.accuracy_update();
             }
         }
     };
@@ -100,10 +110,11 @@ function MEMORY_MATCH(){
             game.display_messages('You Win!');
         }
         console.log('cards match');
-        var score = $('#score').text(); //sets a variable to the current score
-        score = Number(score); //changes the variable from a string to a number
-        score += 10; //adds 10 to the scure
-        $('#score').text(score); //sets the visible score to the new total
+        self.score += 10;
+        // var score = $('#score').text(); //sets a variable to the current score
+        // score = Number(score); //changes the variable from a string to a number
+        // score += 10; //adds 10 to the scure
+        $('#score').text(self.score); //sets the visible score to the new total
         console.log(score);
         self.first_card.next().removeClass('card_back'); //removes the card back class from the first card
         self.second_card.next().removeClass('card_back'); //removes the card back class from the second card
@@ -120,6 +131,15 @@ function MEMORY_MATCH(){
         },1000);
         self.first_card = null;
         self.second_card = null;
+    };
+    this.accuracy_update = function(){
+        var accuracy_element = $('#accuracy');
+        accuracy_element.text(((self.total_matches / self.attempts) * 100).toPrecision(2) + " %");
+    };
+    this.update_attempts = function(){
+        self.attempts+=1;
+        var attempts = $('#attempts');
+        attempts.text(self.attempts);
     }
 }
 $(document).ready(function(){
