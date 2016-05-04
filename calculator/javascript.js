@@ -190,8 +190,11 @@ function CALCULATOR(){
                 answer = 'error';
                 break;
         }
+        var string_answer = answer.toString();
         if (answer == 'Infinity'){
             answer = 'error'
+        }else if (string_answer.length > 9){
+            answer = answer.toPrecision(8);
         }
         self.previous_operation = self.input_sequence;
         self.input_sequence = [answer];
