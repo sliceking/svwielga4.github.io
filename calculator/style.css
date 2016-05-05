@@ -12,8 +12,8 @@ button{
     border:5px solid black;
     border-radius:20px;
     margin: 5px;
-    width:15%;
-    height:13%;
+    width:45px;
+    height:45px;
     color:white;
     background-color: black;
 }
@@ -28,8 +28,8 @@ h1{
 #calc_body{
     position:relative;
     border:5px solid black;
-    width:35%;
-    height:60%;
+    width:300px;
+    height:370px;
     border-radius:20px;
     background-color: teal;
 }
@@ -47,3 +47,4 @@ h1{
     right:15px;
     top:65px;
 }
+
