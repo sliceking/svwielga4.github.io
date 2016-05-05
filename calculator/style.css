@@ -10,27 +10,40 @@ body{
 }
 button{
     border:5px solid black;
+    border-radius:20px;
     margin: 5px;
-    width:35px;
-    height:35px;
+    width:45px;
+    height:45px;
+    color:white;
+    background-color: black;
+}
+button:hover{
+    background-color:grey;
 }
 h1{
-    border:5px solid black;
+    border:5px solid darkgray;
     height:45px;
+    background-color: grey;
 }
 #calc_body{
     position:relative;
     border:5px solid black;
     width:300px;
-    height:400px;
+    height:370px;
+    border-radius:20px;
+    background-color: teal;
 }
 #operator{
     position:absolute;
     width:35px;
     right:0;
 }
+.operator, .equals {
+    background-color: #e07600;
+
+}
 .clear{
     position:absolute;
-    right:50px;
-    top:100px;
+    right:15px;
+    top:65px;
 }
