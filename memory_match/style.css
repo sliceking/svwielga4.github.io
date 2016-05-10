@@ -6,7 +6,6 @@ body{
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    color:white;
     display:flex;
     flex-direction: column;
     justify-content: center;
@@ -28,17 +27,21 @@ body{
     width:15%;
     display: inline-block;
 }
-.header ul{
-    display:inline-block;
+.header_contents{
+    position:absolute;
+    top:10vh;
+}
+.header_contents ul{
+    display:flex;
+    flex-direction: row;
     list-style: none;
-    position: relative;
-    transform: translateY(50%);
-    top:-60%;
-    font-size:35px;
-    left:20vw;
+    font-size:2vw;
+    top:10vh;
     color: #fff9f8;
 }
-
+.header_contents li{
+    margin-left: 5vw;
+}
 .main{
     display:flex;
     flex-direction: row;
@@ -46,21 +49,24 @@ body{
     height:75%;
 }
 .scoreboard{
-    width:10%;
+    width:15%;
     height:70%;
     border-radius: 50px;
     margin:5px;
-    font-size:18px;
+    font-size:1.2vw;
 }
-.scoreboard ul{
+.score_contents ul{
+    position:absolute;
     list-style: none;
     padding:0;
     display:flex;
     flex-direction: column;
     align-items: center;
+    left:13vw;
 }
-.scoreboard li{
+.score_contents li{
     margin:15px 0;
+    color:white;
 }
 .game_area{
     margin:1%;
@@ -72,6 +78,15 @@ body{
     justify-content: space-around;
     align-items: center;
     border-radius: 50px;
+}
+.card_game_area{
+    z-index: -1;
+    margin:1%;
+    width:70%;
+    height:75%;
+    position:absolute;
+    border-radius: 50px;
+    left:20vw;
 }
 .card{
     width:13%;
@@ -96,8 +111,12 @@ body{
     border:5px solid black;
     display:inline-block;
     position:absolute;
-    left:43%;
+    left:60%;
     height:90px;
     bottom:1%;
-    z-index: 10;
+    z-index: 20;
+}
+.score_contents button{
+    color:white;
+    font-size:1.2vw
 }

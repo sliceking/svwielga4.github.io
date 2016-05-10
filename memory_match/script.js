@@ -79,7 +79,7 @@ function MEMORY_MATCH(){
         $('#score').text('0'); // sets the score back to 0
         self.score = 0;
         self.total_matches = 0;
-        $('.display_message').empty();
+        $('.display_message').remove();
         self.append_cards_to_gameboard(); //creates a new game area
         self.attempts= 0;
         $('#attempts').text(0);
@@ -147,6 +147,7 @@ $(document).ready(function(){
     $('button').click(function(){
         game.reset_game();
     })
+    $("#how_to_play_modal").modal('show')
 });
 
 var game = new MEMORY_MATCH();
