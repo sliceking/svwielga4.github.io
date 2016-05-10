@@ -12,15 +12,19 @@ function CARD(front,back){
     this.show_card = function(){
         clickable = false; //sets clickable to false to prevent fast clicking
         // var inside = $(card).prev(); //variable stores the information about the front of the card
-        this.back.hide(); //hides the back of the card
+        // this.back.hide(); //hides the back of the card
+        this.front.addClass('front_flip');
+        this.back.addClass('back_flip');
         console.log('show card fired');
-        game.compare_cards(self.front); //uses the front of the card as a parameter to pass into the compare cards func
+        game.compare_cards(self.front, self.back); //uses the front of the card as a parameter to pass into the compare cards func
     }
 }
 function MEMORY_MATCH(){
     var self = this;
     this.first_card=null;
+    this.first_card_back=null;
     this.second_card=null;
+    this.second_card_back=null;
     this.total_matches=0;
     this.score = 0;
     this.attempts = 0;
@@ -33,17 +37,26 @@ function MEMORY_MATCH(){
                 class:'card'
             });
             var card_back = $('<img>',{ //card back images
-                src:'images/cardBack.jpg',
+                src:'images/cardBack.jpg'
+
+            });
+            var card_back_div = $('<div>',{
                 class:'card_back'
             });
-            var card_front = $('<img>',{ //card front images
-                src:card_fronts[i],
+            var card_front_div = $('<div>',{
                 class:'card_front'
             });
-            $(card_div).append(card_front); //appends the card fronts to a card area
-            $(card_div).append(card_back); //appends the card backs on top of the card fronts
+            var card_front = $('<img>',{ //card front images
+                src:card_fronts[i]
+
+            });
+            $(card_back_div).append(card_back);
+            $(card_front_div).append(card_front);
+            $(card_div).append(card_front_div).append(card_back_div);
+            // $(card_div).append(card_front); //appends the card fronts to a card area
+            // $(card_div).append(card_back); //appends the card backs on top of the card fronts
             $(game_area).append(card_div); //appends all of that to the game area
-            var card = new CARD(card_front,card_back);
+            var card = new CARD(card_front_div,card_back_div);
         }
     };
     this.randomize_cards = function(array){
@@ -75,6 +88,8 @@ function MEMORY_MATCH(){
     this.reset_game = function(){
         self.first_card = null;
         self.second_card = null;
+        self.first_card_back = null;
+        self.second_card_back = null;
         $('.game_area').empty(); //empties the game area
         $('#score').text('0'); // sets the score back to 0
         self.score = 0;
@@ -85,13 +100,17 @@ function MEMORY_MATCH(){
         $('#attempts').text(0);
         $('#accuracy').text('0.0 %')
     };
-    this.compare_cards = function(card){
+    this.compare_cards = function(card, back){
         if (self.first_card == null){
             self.first_card = card; // if the first_card variable is null, it sets first_card to the card clicked
+            self.first_card_back = back;
+            console.log(self.first_card);
             clickable = true;
         }else if(self.second_card == null) {
             self.second_card = card; // if the second_card variable is null, it sets second_card to the card clicked
-            if (self.first_card.attr('src') == self.second_card.attr('src')) {
+            self.second_card_back = back;
+            console.log(self.second_card);
+            if (self.first_card.find('img').attr('src') == self.second_card.find('img').attr('src')) {
                 self.update_attempts();
                 self.cards_match(); // if the src attribute on both cards match, the cards match function is fired
                 self.accuracy_update();
@@ -116,21 +135,32 @@ function MEMORY_MATCH(){
         // score += 10; //adds 10 to the scure
         $('#score').text(self.score); //sets the visible score to the new total
         console.log(score);
-        self.first_card.next().removeClass('card_back'); //removes the card back class from the first card
-        self.second_card.next().removeClass('card_back'); //removes the card back class from the second card
-        self.first_card = null; //sets first card to null
-        self.second_card = null; //sets second card to null
-        clickable = true; //makes cards clickable again
+        setTimeout(function(){
+            self.first_card_back.remove('.card_back'); //removes the card back class from the first card
+            self.second_card_back.remove('.card_back'); //removes the card back class from the second card
+            self.first_card = null; //sets first card to null
+            self.second_card = null; //sets second card to null
+            self.first_card_back = null;
+            self.second_card_back = null;
+            clickable = true; //makes cards clickable again
+        }, 300);
     };
     this.cards_dont_match = function(){
         game.display_messages('Cards don\'t match!');
         console.log('cards dont match');
         setTimeout(function(){
-            $('.card_back').show();
+            // $('.card_back').show();
+            self.first_card_back.removeClass('back_flip');
+            self.first_card.removeClass('front_flip');
+            self.second_card_back.removeClass('back_flip');
+            self.second_card.removeClass('front_flip');
             clickable = true;
+            self.first_card = null;
+            self.second_card = null;
+            self.first_card_back = null;
+            self.second_card_back = null;
         },1000);
-        self.first_card = null;
-        self.second_card = null;
+
     };
     this.accuracy_update = function(){
         var accuracy_element = $('#accuracy');
@@ -146,7 +176,7 @@ $(document).ready(function(){
     game.append_cards_to_gameboard(); //appends cards to the gameboard
     $('button').click(function(){
         game.reset_game();
-    })
+    });
     $("#how_to_play_modal").modal('show')
 });
 

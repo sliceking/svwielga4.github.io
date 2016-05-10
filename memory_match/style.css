@@ -34,6 +34,7 @@ body{
 .header_contents ul{
     display:flex;
     flex-direction: row;
+    align-content: center;
     list-style: none;
     font-size:2vw;
     top:10vh;
@@ -50,7 +51,7 @@ body{
 }
 .scoreboard{
     width:15%;
-    height:70%;
+    height:80%;
     border-radius: 50px;
     margin:5px;
     font-size:1.2vw;
@@ -58,11 +59,11 @@ body{
 .score_contents ul{
     position:absolute;
     list-style: none;
-    padding:0;
+    padding:30px 5px;
     display:flex;
     flex-direction: column;
     align-items: center;
-    left:13vw;
+    left:12.5vw;
 }
 .score_contents li{
     margin:15px 0;
@@ -78,6 +79,7 @@ body{
     justify-content: space-around;
     align-items: center;
     border-radius: 50px;
+    padding-left:20px;
 }
 .card_game_area{
     z-index: -1;
@@ -101,10 +103,8 @@ body{
     position:absolute;
     width:100px;
     height:140px;
-}
-.card_front, .card_back{
-    border:3px solid black;
     border-radius: 10%;
+    border:3px solid black;
 }
 .display_message{
     background-color: red;
@@ -119,4 +119,33 @@ body{
 .score_contents button{
     color:white;
     font-size:1.2vw
+}
+.card_front {
+    width: 100%;
+    height:100%;
+    position: absolute;
+    -webkit-transform: perspective(600px) rotateY(180deg);
+    transform: perspective(600px) rotateY(180deg);
+    backface-visibility: hidden;
+    transition: -webkit-transform .3s linear 0s;
+
+}
+.card_back {
+    width: 100%;
+    height:100%;
+    position: absolute;
+    -webkit-transform: perspective(600px) rotateY(0deg);
+    transform: perspective(600px) rotateY(0deg);
+    backface-visibility: hidden;
+    transition: -webkit-transform .3s linear 0s;
+
+}
+.front_flip {
+    -webkit-transform: perspective(600px) rotateY(0deg);
+    transform: perspective(600px) rotateY(0deg);
+}
+
+.back_flip {
+    -webkit-transform: perspective(600px) rotateY(-180deg);
+    transform: perspective(600px) rotateY(-180deg);
 }
