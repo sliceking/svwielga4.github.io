@@ -12,8 +12,8 @@ button{
     border:5px solid black;
     border-radius:20px;
     margin: 5px;
-    width:45px;
-    height:45px;
+    width:21%;
+    height:15%;
     color:white;
     background-color: black;
 }
@@ -44,7 +44,8 @@ h1{
 }
 .clear{
     position:absolute;
-    right:15px;
+    right:7px;
     top:65px;
+    height:6%;
+    border:0;
 }
-

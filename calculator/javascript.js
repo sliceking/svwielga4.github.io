@@ -42,7 +42,9 @@ function OPERATOR(element){
         // var button_text = $(button).text(); //variable for the operator's text
         var operator_display = $('#operator'); //jquery target for the operator display
         operator_display.text(self.key); //displays the operation text
-        if(!isNaN(Number(calc.input_sequence[calc.input_position]))){
+        if(calc.input_position == 2 && !isNaN(Number(calc.input_sequence[calc.input_position]))){
+            $('#text_area').text(calc.do_math(self.key));
+        }else if(!isNaN(Number(calc.input_sequence[calc.input_position]))){
             calc.input_position++; //increments the input position
             calc.input_sequence[calc.input_position] = self.key; //adds the operator to the input sequence
             calc.input_position++; //increments the input position again for future numbers
@@ -148,7 +150,7 @@ function CALCULATOR(){
             }
         }
     };
-    this.do_math = function(){
+    this.do_math = function(key){
         self.second_number_flag = true; //reset the second_number_flag back to its original position
         var text_area = $('#text_area');
         var operator_area = $('#operator');
@@ -170,7 +172,6 @@ function CALCULATOR(){
         }else{
             var number2 = Number(self.input_sequence[2]);
         }
-
         var operator = self.input_sequence[1];
         var answer = null;
         switch (operator){
@@ -199,6 +200,11 @@ function CALCULATOR(){
         self.previous_operation = self.input_sequence;
         self.input_sequence = [answer];
         self.input_position = 0;
+        if(key){
+            self.input_sequence[1] = key;
+            self.input_position = 2;
+            operator_area.text(key);
+        }
         console.log(self.input_sequence);
         return answer;
     };
