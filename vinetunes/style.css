@@ -1,0 +1,297 @@
+body {
+    background-image: url("http://1079638729.rsc.cdn77.org/pic/v2/gallery/preview/fon-muzyka-15491.jpg");
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.header { /* header have liner color effect and some style*/
+    height: 30vh;
+    border-radius: 15px;
+}
+
+.header img {
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+}
+
+.header h1 {
+    position: absolute;
+    top: 5%;
+    color: white;
+    font-family: 'Lobster';
+}
+
+.header h3 {
+    position: absolute;
+    top: 30%;
+    color: white;
+    font-family: 'Lobster';
+}
+
+.row { /*first part have rows with pitcher and album name in ul*/
+    width: 100%;
+    height: 30vh;
+    border: 1px solid black;
+    border-radius: 15px;
+    margin: 1% auto;
+    background-color: black;
+    opacity: .8;
+    cursor: pointer;
+}
+
+.row:hover { /*row hover effect and it's infinite animation*/
+    animation: rainbow;
+    animation-duration: 2s;
+    animation-iteration-count: infinite; /*background-color: lightgray;*/
+}
+
+@-webkit-keyframes rainbow { /*row hover have this animation effect*/
+    0% {
+        background-color: rgba(205, 0, 0, 0.5);
+    }
+    10% {
+        background-color: rgba(205, 17, 120, 0.5);
+    }
+    20% {
+        background-color: rgba(84, 0, 84, 0.5);
+    }
+    30% {
+        background-color: rgba(0, 0, 205, 0.51);
+    }
+    40% {
+        background-color: rgba(0, 155, 205, 0.51);
+    }
+    50% {
+        background-color: rgba(20, 134, 128, 0.5);
+    }
+    60% {
+        background-color: rgba(0, 86, 0, 0.51);
+    }
+    70% {
+        background-color: rgba(142, 203, 33, 0.5);
+    }
+    80% {
+        background-color: rgba(205, 205, 0, 0.51);
+    }
+    90% {
+        background-color: rgba(204, 130, 0, 0.51);
+    }
+    100% {
+        background-color: rgba(153, 40, 0, 0.51);
+    }
+}
+
+.cover { /*first part rows cover have these styling*/
+    width: 30%;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+.evenImg { /*first part odd rows style*/
+    float: left;
+}
+
+.oddImg { /*first part even rows style*/
+    float: right;
+}
+
+.boxText {
+    color: white;
+    position: relative;
+    text-shadow: 2px 2px 2px black;
+    font-size: 300%;
+    font-family: 'Poiret One';
+    font-weight: bold;
+    margin: 30px 40px 30px 20px;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+body::before, body::after { /*page load animation still in progress*/
+    content: '';
+    background-color: rgba(0, 0, 0, .95);
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    transition-duration: 5s;
+    transform: translateX(0%);
+    top: 0px;
+    transition-delay: 1s;
+    z-index: 1000;
+}
+
+body::before {
+    right: 0px;
+}
+
+body::after {
+    left: 0px;
+}
+
+.curtain::before {
+    transform: translateX(100%) !important;
+}
+
+.curtain::after {
+    transform: translateX(-100%) !important;
+}
+
+.vineDiv {
+    display: block;
+    width: 100%;
+    /*height: 33%;*/
+    /*margin: auto;*/
+}
+
+/*container for cube*/
+.wrap {
+    perspective: 800px;
+    perspective-origin: 50% 100px;
+    position: relative;
+    left: 34%;
+    top: 24%;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+
+    to {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}
+
+.cubePage {
+    display: none;
+}
+
+.cube {
+    position: relative;
+    width: 200px;
+    transform-style: preserve-3d;
+    animation: rotate 10s infinite linear;
+}
+
+.cubediv {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: transparent;
+    border: 3px solid black;
+
+}
+
+.imgDiv {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.back {
+    transform: translateZ(-100px) rotateY(180deg);
+}
+
+.right {
+    transform: rotateY(-270deg) translateX(100px);
+    transform-origin: top right;
+}
+
+.left {
+    transform: rotateY(270deg) translateX(-100px);
+    transform-origin: left center;
+}
+
+.top {
+    transform: rotateX(-90deg) translateY(-100px);
+    transform-origin: top center;
+}
+
+.bottom {
+    transform: rotateX(90deg) translateY(100px);
+    transform-origin: bottom center;
+}
+
+.front {
+    transform: translateZ(100px);
+}
+
+.evenInfoSpan, .oddInfoSpan {
+    text-shadow: 2px 2px 2px black;
+    font-size: 250%;
+    display: none;
+    /*height: 55px;*/
+    /*position: relative;*/
+    text-align: center;
+    text-transform: capitalize;
+    color: white;
+    font-family: 'Poiret One';
+    /*top: 100px;*/
+    padding: 0 10px;
+    font-weight: 900;
+}
+
+.evenInfoSpan {
+    float: left;
+}
+
+.oddInfoSpan {
+    float: right;
+}
+
+/*.infoSpan:after {*/
+    /*content: '';*/
+    /*!*position: absolute;*!*/
+    /*!*bottom: -10px;*!*/
+    /*!*left: 50%;*!*/
+    /*margin-left: 10px;*/
+    /*transform: rotate(45deg);*/
+/*}*/
+
+.row:hover span {
+    display: block;
+    width: 70%;
+}
+
+.backButton {
+    background-color: black;
+    opacity: .8;
+    cursor: pointer;
+    font-size: 25px;
+    border-radius: 15px;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    height: 10vh;
+    border: 1px solid black;
+}
+
+.backButton:hover {
+    animation: rainbow;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+@media screen and (max-width:1600px){
+    .boxText{
+        font-size:250%;
+    }
+}   .evenInfoSpan, .oddInfoSpan{
+    font-size:200%;
+    }
+
+@media screen and (max-width:640px) {
+    .boxText {
+        font-size: 200%;
+    }
+    .row:hover span {
+         display: none;
+    }
+    .backButton {
+        font-size: 100%;
+    }
+    .cubePage {
+        visibility: hidden;
+    }
+}
