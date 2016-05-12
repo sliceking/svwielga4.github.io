@@ -17,10 +17,10 @@ button{
     color:white;
     background-color: black;
 }
-button:hover{
+#calc_body button:hover{
     background-color:grey;
 }
-h1{
+#calc_body h1{
     border:5px solid darkgray;
     height:45px;
     background-color: grey;
@@ -48,4 +48,8 @@ h1{
     top:65px;
     height:6%;
     border:0;
+}
+.how_to_use{
+    height:10%;
+    width:15%;
 }

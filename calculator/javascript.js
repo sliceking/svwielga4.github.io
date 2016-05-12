@@ -229,6 +229,8 @@ $(document).ready(function(){
     $('.clear').click(function(){ //when the clear button is pressed, run reset_calculator()
         calc.reset();
     })
+    $("#how_to_use_modal").modal('show')
+
 });
 
 var calc = new CALCULATOR();
