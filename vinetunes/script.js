@@ -27,7 +27,7 @@ function append_songs(song, i) {
         });
         var songArt = $('<img>', {
             class: 'evenImg cover',
-            src: song.albumArt,
+            src: song.albumArt
         });
         var songInfo = $('<p>', {
             class: 'boxText',
@@ -102,6 +102,39 @@ function append_songs(song, i) {
     });
 }
 
+function artist_only_vines(name){
+    $.ajax({
+        dataType: 'json',
+        url: 'http://s-apis.learningfuze.com/hackathon/vine/index.php',
+        data: {search_term: name},
+        cache: false,
+        success: function (response) {
+            console.log(response);
+            var test = noDupVines(response.vines);
+            console.log("This is the clean list: ", test);
+            //var vineContainer = $("<div>",{
+            //    class:'vineContainer'
+            //});
+            //$('.main-content').append(vineContainer);
+
+            for (var k in test) {
+                //if (test.hasOwnProperty(k)) {
+                var vineDiv = $("<div>",{
+                    class:"vineDiv col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3"
+                });
+                vineDiv.append(test[k].html, {
+                    class: "col-xs-12"
+                });
+                $('.main-content').append(vineDiv);
+                //setTimeout(function(){
+                //
+                //},1000);
+                //}
+            }
+        }
+    })
+}
+
 //function with ajax call to search name + song and return related vines
 function getVines(name,song) {
     //var data = {
@@ -109,12 +142,18 @@ function getVines(name,song) {
     //};
     $.ajax({
         dataType: 'json',
-        url: 'http://s-apis.learningfuze.com/hackathon/vine/index.html',
+        url: 'http://s-apis.learningfuze.com/hackathon/vine/index.php',
         data: {search_term: name + " " + song},
         cache: false,
         success: function (response) {
+            var response2 = null;
             console.log("success", response);
             //output = response;
+            if (response.vines.length === 0){
+                console.log('no vines');
+                artist_only_vines(name);
+                return;
+            }
             var test = noDupVines(response.vines);
             console.log("This is the clean list: ", test);
             //var vineContainer = $("<div>",{
