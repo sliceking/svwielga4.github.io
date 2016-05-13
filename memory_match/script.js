@@ -106,10 +106,13 @@ function MEMORY_MATCH(){
             self.first_card_back = back;
             console.log(self.first_card);
             clickable = true;
+            card_flip1.play();
         }else if(self.second_card == null) {
             self.second_card = card; // if the second_card variable is null, it sets second_card to the card clicked
             self.second_card_back = back;
             console.log(self.second_card);
+            // card_flip2.play();
+            card_flip2.play();
             if (self.first_card.find('img').attr('src') == self.second_card.find('img').attr('src')) {
                 self.update_attempts();
                 self.cards_match(); // if the src attribute on both cards match, the cards match function is fired
@@ -154,6 +157,7 @@ function MEMORY_MATCH(){
             self.first_card.removeClass('front_flip');
             self.second_card_back.removeClass('back_flip');
             self.second_card.removeClass('front_flip');
+            card_flip_back.play();
             clickable = true;
             self.first_card = null;
             self.second_card = null;
@@ -183,3 +187,6 @@ $(document).ready(function(){
 
 var game = new MEMORY_MATCH();
 var theme = new Audio('./images/gf_theme.mp3');
+var card_flip1 = new Audio('./images/card_flip1.wav');
+var card_flip2 = new Audio('./images/card_flip1.wav');
+var card_flip_back = new Audio('./images/card_flip2.wav');
