@@ -143,7 +143,7 @@ function MEMORY_MATCH(){
             self.first_card_back = null;
             self.second_card_back = null;
             clickable = true; //makes cards clickable again
-        }, 300);
+        }, 500);
     };
     this.cards_dont_match = function(){
         game.display_messages('Cards don\'t match!');
@@ -159,7 +159,7 @@ function MEMORY_MATCH(){
             self.second_card = null;
             self.first_card_back = null;
             self.second_card_back = null;
-        },1000);
+        },900);
 
     };
     this.accuracy_update = function(){
@@ -177,7 +177,9 @@ $(document).ready(function(){
     $('button').click(function(){
         game.reset_game();
     });
-    $("#how_to_play_modal").modal('show')
+    $("#how_to_play_modal").modal('show');
+    theme.play();
 });
 
 var game = new MEMORY_MATCH();
+var theme = new Audio('./images/gf_theme.mp3');
