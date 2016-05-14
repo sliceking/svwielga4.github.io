@@ -1,7 +1,10 @@
 //ON DOCUMENT LOAD
 $(document).ready(function () {
+    $("#how_to_play_modal").modal('show');
+
     //when a square on either board is clicked
     $(".square3, .square5").click(function () {
+      
 
         //if clicked after game is won, reset the game
         if (won == 1) {
