@@ -26,10 +26,6 @@
     left: 46vw;
     z-index: 1;
 }
-.game_board3{
-    position: relative;
-    top: 1%;
-}
 h1{
     font-size:2vw;
 }
@@ -73,14 +69,19 @@ body{
     background-color:#E3E3E3;
     position: relative;
 }
+.square3_container{
+    width: 17vw;
+    height: 22vh;
+    position:relative;
+    padding:0;
+}
 .square3 {
     border: 3px solid olive;
     background-color: #8FB321;
-    width: 17vw;
-    height: 22vh;
-    transform-style: preserve-3d;
-    transition-duration: 1s;
+    height:100%;
+    width:100%;
     margin: auto;
+    position:absolute;
 }
 .square5 {
     border: 3px solid olive;
@@ -110,21 +111,16 @@ body{
     background-size:contain;
     background-repeat: no-repeat;
     background-position: center;
-    transform:  rotate3D(0,1,0,180deg);
 }
-.x:hover {
-    border-radius:30%;
+.square3:hover{
+    background-color: #2ecc71;
 }
 .o{
     background-image: url("images/contra.png");
-    transform: rotate3D(0,1,0,180deg);
     background-size:contain;
     background-repeat: no-repeat;
 }
-.o:hover {
-    border-radius:30%;
 
-}
 .modal-header{
     border-bottom:none;
 }
@@ -162,8 +158,19 @@ body{
     left:4vw;
     top:37vh;
 }
-.flip_square{
-    width:100%;
-    height:100%;
-    border:2px solid red;
+
+.front{
+    -webkit-transform: perspective(600px) rotateY(180deg);
+    transform: perspective(600px) rotateY(180deg);
+    transition: -webkit-transform .3s linear 0s;
+}
+.back{
+    -webkit-transform: perspective(600px) rotateY(180deg);
+    transform: perspective(600px) rotateY(180deg);
+    transition: -webkit-transform .3s linear 0s;
+    backface-visibility: hidden;
+}
+.flip {
+    -webkit-transform: perspective(600px) rotateY(0deg);
+    transform: perspective(600px) rotateY(0deg);
 }

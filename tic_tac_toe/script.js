@@ -3,7 +3,7 @@ $(document).ready(function () {
     $("#how_to_play_modal").modal('show');
 
     //when a square on either board is clicked
-    $(".square3, .square5").click(function () {
+    $(".square3_container, .square5").click(function () {
       
 
         //if clicked after game is won, reset the game
@@ -41,7 +41,7 @@ $(document).ready(function () {
         }// otherwise, anarchyMode is off and continue as normal
         else {
             //if square was already claimed,
-            if ($(this).hasClass('x') || $(this).hasClass('o')) {
+            if ($(this).find('.back').hasClass('x') || $(this).find('.back').hasClass('o')) {
                 $('.square_occupied').show( "drop", {direction: "right"});
                 setTimeout(function () {
                     $('.square_occupied').hide('drop',{direction:'right'});
@@ -50,7 +50,8 @@ $(document).ready(function () {
                 return;
             }
             console.log(this);
-            $(this).addClass(player);//mark the cell with the current player's mark
+            $(this).find('.back').addClass(player).addClass('flip');//mark the cell with the current player's mark
+            $(this).find('.front').addClass('flip');
             addToIndex($(this).attr('id'), player);//store the location of the click into your storage variable
             console.log("player:" + player);
         }
@@ -407,7 +408,7 @@ function square_clicked(a){
 //this is the reset function that resets the x and o classes and resets the gameArea Array
 function reset(){
     console.log('reset recieved');
-    $('.square3, .square5').removeClass('x o');
+    $('.square3, .square5').removeClass('x o flip');
     if(gameAreaSize == 3){
         gameArea = [
             ['1', '2', '3'],
