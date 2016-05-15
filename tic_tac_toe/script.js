@@ -3,7 +3,7 @@ $(document).ready(function () {
     $("#how_to_play_modal").modal('show');
 
     //when a square on either board is clicked
-    $(".square3_container, .square5").click(function () {
+    $(".square3_container, .square5_container").click(function () {
       
 
         //if clicked after game is won, reset the game
@@ -22,10 +22,10 @@ $(document).ready(function () {
                 if (Math.random() < 0.64)
                 {
                     //if does not have the player's class, steal
-                    if (!($(this).hasClass(player)))
+                    if (!($(this).find('.back').hasClass(player)))
                     {
-                        $(this).toggleClass('x');
-                        $(this).toggleClass('o');
+                        $(this).find('.back').toggleClass('x');
+                        $(this).find('.back').toggleClass('o');
                         addToIndex($(this).attr('id'), player);
                     }
                 }
@@ -34,7 +34,8 @@ $(document).ready(function () {
             //if unclaimed, take square normally
             else {
                 console.log(this);
-                $(this).addClass(player);//mark the cell with the current player's mark
+                $(this).find('.back').addClass(player).addClass('flip');//mark the cell with the current player's mark
+                $(this).find('.front').addClass('flip');
                 addToIndex($(this).attr('id'), player);//store the location of the click into your storage variable
                 console.log("player:" + player);
             }

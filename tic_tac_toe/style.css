@@ -83,13 +83,20 @@ body{
     margin: auto;
     position:absolute;
 }
+.square5_container{
+    width: 10vw;
+    height: 15vh;
+    position:relative;
+    padding:0;
+}
 .square5 {
     border: 3px solid olive;
     background-color: #8FB321;
-    width: 10vw;
-    height: 15vh;
-    transform-style: preserve-3d;
-    transition-duration: 1s;
+    height:100%;
+    width:100%;
+    margin: auto;
+    position:absolute;
+
 }
 .game_board3{
     position:absolute;
