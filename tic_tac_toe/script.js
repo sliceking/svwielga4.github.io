@@ -16,7 +16,7 @@ $(document).ready(function () {
         if (anarchyMode) // if anarchyMode is not 0, i.e. on
         {
             //if clicked square is already selected by a player
-            if ( $(this).hasClass('x') || $(this).hasClass('o'))
+            if ( $(this).find('.back').hasClass('x') || $(this).find('.back').hasClass('o'))
             {
                 // there is 65% chance to take over clicked square
                 if (Math.random() < 0.64)
